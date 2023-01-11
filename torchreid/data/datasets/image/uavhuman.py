@@ -6,7 +6,7 @@ import os.path as osp
 import glob
 import re
 
-from torchreid.data import ImageDataset
+from ..dataset import ImageDataset
 
 
 class UAVHuman(ImageDataset):
@@ -18,7 +18,7 @@ class UAVHuman(ImageDataset):
     def __init__(self, root='', **kwargs):
         self.root = osp.abspath(osp.expanduser(root))
         self.dataset_dir = osp.join(self.root, self.dataset_dir)
-
+        self.data_dir = self.dataset_dir
         self.train_dir = osp.join(self.data_dir, 'bounding_box_train')
         self.query_dir = osp.join(self.data_dir, 'query')
         self.gallery_dir = osp.join(self.data_dir, 'bounding_box_test')
